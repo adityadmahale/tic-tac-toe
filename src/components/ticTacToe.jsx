@@ -22,16 +22,9 @@ class TicTacToe extends Component {
     content[row][col] = player;
 
     this.setState({ content, player: player === "X" ? "O" : "X" });
-    this.findWinner();
-  };
 
-  handleReset = () => {
-    const content = this.state.content.map((row) => row.map(() => ""));
-    this.setState({ content, winner: "", player: "X" });
-  };
-
-  findWinner = () => {
-    const { content } = this.state;
+    // Check if a player won the game
+    // Check for equality of vertical and horizontal elements
     const getColumn = (i) => content.map((row) => row[i]);
     for (let i = 0; i < 3; i++) {
       if (content[i][0] && content[i].every((e) => content[i][0] === e))
@@ -40,6 +33,7 @@ class TicTacToe extends Component {
         return this.setState({ winner: content[0][i] });
     }
 
+    // Check for equality of diagonal elements
     const midUnit = content[1][1];
     if (
       midUnit &&
@@ -47,6 +41,11 @@ class TicTacToe extends Component {
         (content[0][2] === midUnit && content[2][0] === midUnit))
     )
       this.setState({ winner: midUnit });
+  };
+
+  handleReset = () => {
+    const content = this.state.content.map((row) => row.map(() => ""));
+    this.setState({ content, winner: "", player: "X" });
   };
 
   render() {
