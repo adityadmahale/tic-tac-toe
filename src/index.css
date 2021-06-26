@@ -13,18 +13,18 @@ code {
 }
 
 .unit {
-  width: 130px;
-  height: 130px;
+  width: 180px;
+  height: 180px;
   background-color: #ceddf0;
   cursor: pointer;
   border-radius: 7px;
   display: inline-block;
-  font-size: 90px;
+  font-size: 120px;
   font-weight: bold;
   color: #575757;
   text-align: center;
   vertical-align: middle;
-  line-height: 130px;
+  line-height: 180px;
   border: 1px solid #ababab;
 }
 
