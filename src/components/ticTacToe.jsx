@@ -39,6 +39,14 @@ class TicTacToe extends Component {
       if (content[0][i] && getColumn(i).every((e) => content[0][i] === e))
         return this.setState({ winner: content[0][i] });
     }
+
+    const midUnit = content[1][1];
+    if (
+      midUnit &&
+      ((content[0][0] === midUnit && content[2][2] === midUnit) ||
+        (content[0][2] === midUnit && content[2][0] === midUnit))
+    )
+      this.setState({ winner: midUnit });
   };
 
   render() {
